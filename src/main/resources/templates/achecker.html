@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>- Check-in -</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Fira+Mono:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+    
+        body {
+            font-size: 28px;
+            background-color: #11111b;
+            color: #f5c2e7;
+            font-family: "Fira Mono", monospace;
+        }
+
+        a{
+            text-decoration: none;
+            color: #1e1e2e;
+        }
+        
+        h1{
+            text-align: center;
+        }
+
+        h3{
+            font-size: 100%;
+            text-align: center;
+            color: #f38ba8;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        #backbutton{
+            text-align: center;
+            background-color: #f5c2e7;;
+            border-radius: 20px;
+            width:500px;
+            margin:auto;
+            margin-top:50px;
+            padding:20px;
+            transition-duration: 0.5s;
+        }
+
+        #backbutton:hover{
+            background-color: #f38ba8;
+            transition-duration: 0.5s;
+        }
+
+        .container{
+            width: 808px;
+            margin:auto;
+            padding:20px;
+            background-color:#45475a;
+            margin-top:50px;
+            border-radius:20px;
+        }
+
+        .attendanceform{
+            height:40px;
+            font-size:100%;
+            background-color: #f38ba8;
+            transition-duration: 0.5s;
+            border-style: none;
+        }
+
+        .attendanceform:focus{
+            background-color: #a6e3a1;
+            transition-duration: 0.5s;
+        }
+
+    
+    </style>
+
+</head>
+  <body onload="myFunction()">
+        <h2 id="backbutton"><a href="/">Back to Home</a></h2>
+
+        <div class="container">
+            <h1>
+                C.R.O.N.O.S
+            </h1>
+
+            <h3>
+                Check-in Record Organizer for Notifications and Overview of Students
+            </h3>
+
+        <form id="f1" name="f1" action="/attendance/submit" method="POST">
+            <br>
+            
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            
+            <iframe src="https://free.timeanddate.com/clock/i9a2ybh0/n145/fs20/fc090/ftb/bo2/tt0/tw0/tm1/ts1/tb4" frameborder="0" width="808px" height="50"></iframe>
+            <br>
+
+            <input type="text" id="studentid" name="studentid" style="width:804px;" onchange="javascript:document.forms['f1'].submit()" autofocus class="attendanceform">
+
+        </form>
+
+        <p>🟥 = Inactive</p>
+        <p>🟩 = Active</p>
+        
+    </body>
+</html>
+
